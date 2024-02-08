@@ -1,0 +1,17 @@
+<%- include ("includes/head.ejs") %>
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <%- include ("includes/nav.ejs") %>
+<h1>List of products</h1>
+<% if(products.length === 0){%>
+    <h1>There are no products</h1>
+<%} else {%>
+    <ul>
+    <% for(const product of products) {%>
+        <%- include ("includes/product.ejs", {product}) %>
+    <%  } %>
+</ul>
+    <%  } %>
+</body>
+</html>
