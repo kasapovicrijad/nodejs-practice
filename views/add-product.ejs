@@ -1,15 +1,32 @@
-<link rel="stylesheet" href="/css/nav.css">
 <%- include ("includes/head.ejs") %>
+<link rel="stylesheet" href="/css/nav.css">
+<link rel="stylesheet" href="/css/form.css">
 </head>
 <body>
     <%- include ("includes/nav.ejs") %>
-    <form action="/admin/add-product" method="post">
-
-        <input type="text" placeholder="title" name="title">
-        <input type="text" placeholder="price" name="price">
-
-        <button type="submit">Add product</button>
+    <form class="form" action="/admin/add-product" method="post">
+        
+        <div class="form__controll">
+            <label for="title">Title</label>
+            <input type="text" placeholder="title" name="title">
+        </div>
+        <div class="form__controll">  
+            <label for="imgUrl">Image URL</label>
+            <input type="text" name="" placeholder="imgurl" name="imgUrl"></div>
+        <div class="form__controll">
+            <label for="description">Description</label>
+            <textarea name="description" placeholder="description" id="" cols="30" rows="10"></textarea>
+        </div>
+        <div class="form__controll">
+            <label for="price">Price</label>
+            <input type="text" placeholder="price" name="price">
+        </div>
+        
+        <div class="form__action"><button type="submit">Add product</button></div>
 
     </form>
+
+    
+    
 </body>
 </html>
