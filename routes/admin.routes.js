@@ -19,8 +19,6 @@ router.post('/admin/add-product', (req,res) => {
         price
     }
 
-    
-
     fs.readFile(p, (err, products) => {
         const updatedProducts = [ product, ...JSON.parse(products)];
         fs.writeFile(p, JSON.stringify(updatedProducts), () => {
