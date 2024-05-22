@@ -25,3 +25,8 @@
    border-bottom: 1px solid #1599db;
    transition: 0.4s;
 }
+
+.active{
+    color: #1599db;
+    border-bottom: 1px solid #1599db;
+}
