@@ -6,6 +6,8 @@ const p = path.join(__dirname, 'data', 'products.json')
 
 const app = express();
 
+const errorControllers = require('./controllers/error.controllers')
+
 app.set("view engine", "ejs")
 app.set('views', path.join(__dirname, "views"))
 
@@ -21,9 +23,6 @@ app.use(productsRoutes)
 app.use(adminRoutes)
 app.use(cartRoutes)
 
-app.get("*", (req ,res) => {
-    const error = {message:"Not Found"};
-    res.render("error", {pageTitle: error.title, path: "*", error});
-});
+app.get("*", errorControllers.get404);
 
 app.listen(5000);
