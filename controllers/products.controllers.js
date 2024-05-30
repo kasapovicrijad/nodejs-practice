@@ -9,8 +9,6 @@ exports.getProducts = (req,res) => {
     })
 }
 
-
-
 exports.getProduct = (req,res) => {
     const { id } = req.params;
 

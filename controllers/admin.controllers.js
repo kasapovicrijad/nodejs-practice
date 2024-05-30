@@ -3,6 +3,7 @@ const {v4} = require('uuid')
 const fs = require('fs');
 const p = path.join(__dirname, '..','data', 'products.json')
 
+const Product = require ('../models/Product')
 exports.getAddProduct = (req,res) => {
     res.render("add-product", {pageTitle: "Add new product", path:"/admin/add-product"})
 }
@@ -10,19 +11,9 @@ exports.getAddProduct = (req,res) => {
 
 exports.postAddProduct = (req,res) => {
     const {title, price} = req.body;
-
-    const product= {
-        id:v4(),
-        title,
-        price
-    }
-
-    fs.readFile(p, (err, products) => {
-        const updatedProducts = [ product, ...JSON.parse(products)];
-        fs.writeFile(p, JSON.stringify(updatedProducts), () => {
-            res.redirect('/')
-        })
-    })
+    const product = new Product(title, price);
+    product.save();
+    res.redirect('/products');
 }
 
 exports.getProduct = (req,res) => {
